@@ -1,6 +1,8 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 import { SharedArray } from 'k6/data';
+import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/main/dist/bundle.js";
+
 
 export const options = {
   discardResponseBodies: true,
@@ -101,5 +103,10 @@ export default function () {
     check(res, {
         'status code 200': (r) => r.status === 200
     });
+}
 
+export function handleSummary(data) {
+  return {
+    "index.html": htmlReport(data),
+  };
 }
