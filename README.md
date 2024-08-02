@@ -1,4 +1,4 @@
-# ms-credit-motor-loadtes-k6
+# k6-soap
 Loadtest do motor de crédito usando K6
 
 # Installation
